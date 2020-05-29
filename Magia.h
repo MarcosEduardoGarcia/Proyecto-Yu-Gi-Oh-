@@ -8,36 +8,29 @@ class Magia : public Hechizo {
     private:
         int aumentar;
 
+
     public:
 
-        Magia(string nombre, string CoID, string desc,string tipoCarta, int aumentar) : Hechizo(nombre,CoID,desc,tipoCarta) {
+        Magia(string nombre, string CoID, string desc,int aumentar) : Hechizo(nombre,CoID,desc,"Magica") {
 
             this->aumentar = aumentar;
 
         }
 
         void DarPoder(Monstruo &m);
-        void DarEscudo(Monstruo &m);
-        void getCarta();
+        void generarCarta();
+        void Invocar();
 
 };
 
 void Magia::DarPoder(Monstruo &m){
 
     m.SetAtk(aumentar);
-    cout <<m.GetNombre()<<" recibe carta de magia ataque aumenta "<<"ATK "<< m.GetAtk()<<endl;
+    cout << m.GetAtk();
 
 }
 
-void Magia::DarEscudo(Monstruo &m){
-
-    m.SetDef(aumentar);
-    cout << m.GetNombre()<<" recibe carta de magia defensa aumenta" << "DEF "<<m.GetDef()<<endl;
-
-
-
-}
-void Magia::getCarta(){
+void Magia::generarCarta(){
 
 
     cout << "Nombre: "<<nombre<<endl;
@@ -45,10 +38,13 @@ void Magia::getCarta(){
     cout << desc << endl;
     cout << "Tipo: "<< tipoCarta <<endl;
     cout << "Efecto de aumento: " << aumentar <<endl;
-    cout <<endl;
+    cout << endl;
 
+}
 
+void Magia :: Invocar(){
 
+    cout <<nombre<< " Carta de magia activada "<<endl;
 
 }
 

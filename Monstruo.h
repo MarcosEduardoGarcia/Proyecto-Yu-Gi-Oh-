@@ -18,7 +18,7 @@ class Monstruo : public Cartas {
 
         //Iniciar el constructor
 
-        Monstruo(string nombre,string atributo,string CoID, string desc,string tipoCarta,string tipoMons,string nivel,int atk,int def,bool fusionable) : Cartas(nombre,atributo,CoID,desc,tipoCarta){
+        Monstruo(string nombre,string atributo,string CoID, string desc,string tipoMons,string nivel,int atk,int def,bool fusionable) : Cartas(nombre,atributo,CoID,desc,"Monstruo"){
 
             this->tipoMons = tipoMons;
             this->nivel = nivel;
@@ -26,21 +26,22 @@ class Monstruo : public Cartas {
             this->def = def;
             this->fusionable = fusionable;
 
+
         }
 
-        void getCarta();
+        void generarCarta();
+        void Invocar();
         int GetAtk(){return atk;}
         int GetDef(){return def;}
         void Atacar(Monstruo &m );
         void Fusion(Monstruo &m);
         void SetAtk(int val);
-        void SetDef(int val);
 
 
 
 };
 
-void Monstruo::getCarta(){
+void Monstruo::generarCarta(){
 
 
     cout << "Nombre: "<<nombre<<endl;
@@ -54,6 +55,12 @@ void Monstruo::getCarta(){
 
 }
 
+void Monstruo::Invocar(){
+
+    cout << "Carta de mounstruo invocada en el campo"<<endl;
+
+
+}
 
 
 void Monstruo::Atacar(Monstruo &m){
@@ -63,7 +70,7 @@ void Monstruo::Atacar(Monstruo &m){
         cout<< GetNombre()<<" Ha matado a " <<m.GetNombre();
     }
     else{
-        cout << " Oh no! La defensa del mosntruo oponente es superior \n Oponente recibe daño de diferencia, tu monstruo se va al cementerio ";
+        cout << "Oponente recibe daño de diferencia ";
     }
 
 }
@@ -74,7 +81,7 @@ void Monstruo::Fusion(Monstruo &m){
         cout << "Nueva bestia" <<endl;
     }
     else{
-        cout << "Fusion no existente, se requiere que exista una carta \n con especifiacion de fusion" <<endl;
+        cout << "Fusion no existente" <<endl;
     }
 
 }
@@ -82,12 +89,6 @@ void Monstruo::Fusion(Monstruo &m){
 void Monstruo::SetAtk(int val){
 
     atk = atk + val;
-
-}
-
-void Monstruo::SetDef(int val){
-
-    def = def + val;
 
 }
 

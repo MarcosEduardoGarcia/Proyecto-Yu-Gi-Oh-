@@ -17,8 +17,8 @@ class Cartas {
         //Constructor cartas Hechizo
         Cartas(string nombre,string CoID,string desc,string tipoCarta);
 
-        void getCarta();
-        void Invocar();
+        virtual void generarCarta();
+        virtual void Invocar();
         //getters
         string GetNombre(){return nombre;}
         string GetAtributo(){return atributo;}
@@ -48,7 +48,9 @@ Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){
 
 }
 
-void Cartas::getCarta(){
+void Cartas::generarCarta(){
+
+    //Podrian volverse virtuales, nunca se instancian objetos tipo carta
 
     cout << "Nombre: "<<nombre<<endl;
     cout << "Atributo: "<<atributo<<endl;
@@ -61,10 +63,11 @@ void Cartas::getCarta(){
 
 void Cartas::Invocar(){
 
+    //Podria ser virtual checar
+
     cout << nombre << "Invocado"<<endl;
 
 }
-
 
 
 

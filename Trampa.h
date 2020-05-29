@@ -9,35 +9,30 @@ class Trampa : public Hechizo {
     private:
         int reducir;
 
+
     public:
 
-        Trampa(string nombre, string CoID, string desc, string tipoCarta,int reducir) : Hechizo(nombre,CoID,desc,tipoCarta){
+        Trampa(string nombre, string CoID, string desc,int reducir) : Hechizo(nombre,CoID,desc,"Trampa"){
 
             this->reducir = reducir;
+
 
         }
 
         void ReducirPoder(Monstruo &m);
-        void ReducirEscudo(Monstruo &m);
-        void getCarta();
+        void generarCarta();
+        void Invocar();
 
 };
 
 void Trampa::ReducirPoder(Monstruo &m){
 
     m.SetAtk(reducir);
-    cout <<m.GetNombre()<<" ATK "<< m.GetAtk()<<endl;
+    cout << m.GetAtk();
 
 }
 
-void Trampa::ReducirEscudo(Monstruo &m){
-
-    m.SetDef(reducir);
-    cout << m.GetNombre()<<" se ve afectado por carta trampa defensa baja DEF " <<  m.GetDef()<<endl;
-
-}
-
-void Trampa::getCarta(){
+void Trampa::generarCarta(){
 
     cout << "Nombre: "<<nombre<<endl;
     cout << "Coleccion ID: "<<CoID<<endl;
@@ -46,5 +41,10 @@ void Trampa::getCarta(){
     cout << "Efecto negativo: "<< reducir << endl;
     cout << endl;
 
+}
+
+void Trampa :: Invocar(){
+
+    cout << "Carta de trampa activada" << endl;
 }
 
