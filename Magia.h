@@ -32,12 +32,16 @@ void Magia::DarPoder(Monstruo &m){
 
 void Magia::generarCarta(){
 
-
+    for(int i=0;i<50;i++){cout << "/";}
+    cout << endl;
+    cout << endl;
     cout << "Nombre: "<<nombre<<endl;
     cout << "Coleccion ID: "<<CoID<<endl;
     cout << desc << endl;
     cout << "Tipo: "<< tipoCarta <<endl;
     cout << "Efecto de aumento: " << aumentar <<endl;
+    cout <<endl;
+    for(int i=0;i<50;i++){cout << "/";}
     cout << endl;
 
 }

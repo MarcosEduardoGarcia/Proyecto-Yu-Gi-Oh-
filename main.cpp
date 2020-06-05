@@ -134,7 +134,7 @@ void wikipedia(){
     Deck *principal = new Deck();
     principal->CargarBaseCartas();
 
-    //do{
+    do{
 
         cout << "\t::::::::::::Wikipedia:::::::::::\n"<<endl;
         cout << "Actualmente contamos con: "<<endl;
@@ -145,8 +145,10 @@ void wikipedia(){
         cout << "2.- Monstruos" << endl;
         cout << "3.- Trampas" << endl;
         cout << "4.- Todas"<<endl;
+        cout << "Presione 100 para salir"<<endl;
         cout << "Digite opcion: ";
         cin >> opcion;
+        cout << endl;
         if(opcion==1){
             principal->mostrarCartas("Magica");
         }
@@ -164,8 +166,8 @@ void wikipedia(){
             principal->desplegar(opcion);
         }
 
-    //}
-    //while (opcion != 100);
+    }
+    while (opcion != 100);
     delete principal;
 
 }
