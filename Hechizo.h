@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Existe una subdivision de clases para los hechizos
+
 class Hechizo : public Cartas {
 
 

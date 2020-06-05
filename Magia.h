@@ -22,11 +22,11 @@ class Magia : public Hechizo {
         void Invocar();
 
 };
-
+//Metodos de la clase magia
 void Magia::DarPoder(Monstruo &m){
 
     m.SetAtk(aumentar);
-    cout << m.GetAtk();
+    cout <<"Poder aumenta a: "<< m.GetAtk();
 
 }
 

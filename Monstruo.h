@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-//Clase hija
+//Clase hija paro los monstruos
 
 class Monstruo : public Cartas {
 
@@ -31,19 +31,20 @@ class Monstruo : public Cartas {
 
         void generarCarta();
         void Invocar();
+        void Atacar(Monstruo &m);
+        void Fusion(Monstruo &m);
         int GetAtk(){return atk;}
         int GetDef(){return def;}
-        void Atacar(Monstruo &m );
-        void Fusion(Monstruo &m);
         void SetAtk(int val);
 
 
 
 };
-
+//Metodos de la clase monstruo
 void Monstruo::generarCarta(){
 
-
+    for (int i=0;i<60;i++){cout << "*";}
+    cout<<endl;
     cout << "Nombre: "<<nombre<<endl;
     cout << "Atributo: "<<atributo<<endl;
     cout << "Coleccion ID: "<<CoID<<endl;
@@ -52,7 +53,8 @@ void Monstruo::generarCarta(){
     cout<<"Nivel: " <<nivel<<endl;
     cout << "ATK/"<< atk << " DEF/"<<def<< endl;
     cout << endl;
-
+    for (int i=0;i<60;i++){cout << "*";}
+    cout<<endl;
 }
 
 void Monstruo::Invocar(){
@@ -70,7 +72,8 @@ void Monstruo::Atacar(Monstruo &m){
         cout<< GetNombre()<<" Ha matado a " <<m.GetNombre();
     }
     else{
-        cout << "Oponente recibe daño de diferencia ";
+        cout << "Oponente recibe daño de diferencia "<<endl;
+        cout << m.def-atk << " Puntos menos"<<endl;
     }
 
 }
@@ -91,8 +94,6 @@ void Monstruo::SetAtk(int val){
     atk = atk + val;
 
 }
-
-
 
 
 

@@ -24,11 +24,11 @@ class Trampa : public Hechizo {
         void Invocar();
 
 };
-
+//Metodos de la clase trampa
 void Trampa::ReducirPoder(Monstruo &m){
 
     m.SetAtk(reducir);
-    cout << m.GetAtk();
+    cout <<"Ataque se redujo a: "<< m.GetAtk();
 
 }
 

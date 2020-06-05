@@ -10,7 +10,6 @@ class Deck {
 
     private:
         Cartas *baseCartas[50];
-        Cartas *deckPersonal[30];
         int contador;
 
     public:
@@ -21,11 +20,14 @@ class Deck {
         void mostrarCartas();
         void cuentaTipos();
         void mostrarCartas(string tipoCarta);
-        //void creardeck();
+        void desplegar(int opcion);
         void ActivarInvocacion();
         void ArrojaNombres();
-        //void Ataquesencillo();
-        //void cuentaCartas(deckPersonal);
+        void Ataquesencillo();
+        void fusionMons();
+        void EquiparMagia();
+        void AplicarTrampa();
+        //void AtaqueDirigido(?)
 
 
 
@@ -86,7 +88,7 @@ void Deck :: mostrarCartas(){
     }
 
 }
-//Arroja todas las cartas de un tipo
+//Arroja todas las cartas de un tipo sobrecarga de metodo
 void Deck :: mostrarCartas(string tipoCarta){
 
     for (int i=0;i<contador;i++){
@@ -98,6 +100,13 @@ void Deck :: mostrarCartas(string tipoCarta){
     }
 
 }
+
+void Deck::desplegar(int opcion){
+
+    baseCartas[opcion]->generarCarta();
+
+}
+
 //Metodo para contar el numero de tipo de cartas
 void Deck :: cuentaTipos(){
 
@@ -120,72 +129,151 @@ void Deck :: cuentaTipos(){
         }
 
     }
-    cout << "Numero de magicas " << num_mag << endl;
-    cout << "Numero de monstruos " << num_mon << endl;
-    cout << "Numero de trampas " << num_tram << endl;
+    cout << "Cartas de magia: " << num_mag << endl;
+    cout << "Cartas de monstruos: " << num_mon << endl;
+    cout << "Cartas de de trampa: " << num_tram << endl;
 }
 
 
-//METODO EN DESARROLLO
-//void creardeck(){
 
-  //  int decision;
-
-
-    //for(int i=0;i<5;i++){
-
-      //  cout << "introduzca numero";
-        //cin >> decision;
-
-        //deckPersonal[i] = baseCartas[decision];
-
-    //}
-
-
-
-//}
 
 //Metodo para activar la invocacion usando polimorfismo
 void Deck::ActivarInvocacion(){
 
     int opcion;
 
-    cout << "Trata de invocar una carta escribe su numero: "<<endl;
+    cout << "Trata de invocar una carta escribe su numero: ";
     cin >> opcion;
 
     baseCartas[opcion]->Invocar();
 
 }
-
+//Metodo para dar solo los nombres de las cartas
 void Deck ::ArrojaNombres(){
 
     for (int i=0;i<contador;i++){
 
         cout << i << " " ;
-        cout<<baseCartas[i]->GetNombre()<<endl;
+        cout<<baseCartas[i]->GetNombre()<<"  ("<<baseCartas[i]->GetTipoCarta()<<")"<<endl;
 
+    }
+    cout <<endl;
+
+}
+//Metodos de ataque, fusion y equipar magia entre monstruos dentro del arreglo mediante el dynamic cast
+void Deck :: Ataquesencillo(){
+
+
+    int opcion1,opcion2;
+
+    cout << "Selecciona dos monstruos"<<endl;
+    cout << "Monstruo 1: ";
+    cin >> opcion1;
+    cout << "Monstruo 2: ";
+    cin >> opcion2;
+
+
+    if (baseCartas[opcion1]->GetTipoCarta()=="Monstruo" && baseCartas[opcion2]->GetTipoCarta()=="Monstruo"){
+
+        Monstruo *m = dynamic_cast<Monstruo*>(baseCartas[opcion1]);
+        Monstruo *m2 = dynamic_cast<Monstruo*>(baseCartas[opcion2]);
+
+        m ->Atacar(*m2);
+
+    }
+    else{
+        cout << "No es ataque valido solo se permite ataque entre monstruos"<<endl;
     }
 
 }
-//METODO EN DESARROLLO
-//void Deck :: Ataquecomplejo(){
+
+void Deck::fusionMons(){
+
+    int opcion1,opcion2;
+
+    cout << "Selecciona dos monstruos"<<endl;
+    cout << "Monstruo 1: ";
+    cin >> opcion1;
+    cout << "Monstruo 2: ";
+    cin >> opcion2;
 
 
-  //  int opcion1,opcion2;
+    if (baseCartas[opcion1]->GetTipoCarta()=="Monstruo" && baseCartas[opcion2]->GetTipoCarta()=="Monstruo"){
 
-    //cout << "Selecciona dos monstruos"<<endl;
-    //cin >> opcion1 >> opcion2;
+        Monstruo *m = dynamic_cast<Monstruo*>(baseCartas[opcion1]);
+        Monstruo *m2 = dynamic_cast<Monstruo*>(baseCartas[opcion2]);
+
+        m ->Fusion(*m2);
+
+    }
+    else{
+        cout << "No es una fusion valida solo se permite fusionar monstruos"<<endl;
+    }
+
+}
+
+void Deck::EquiparMagia(){
+
+    int opcion1,opcion2;
+
+    cout << "Selecciona un monstruo y una carta de magia"<<endl;
+    cout << "Monstruo : ";
+    cin >> opcion1;
+    cout << "Carta de magia: ";
+    cin >> opcion2;
+
+    if (baseCartas[opcion1]->GetTipoCarta()=="Monstruo" && baseCartas[opcion2]->GetTipoCarta()=="Magica"){
 
 
-    //if (baseCartas[opcion1]->GetTipoCarta()=="Monstruo" && baseCartas[opcion2]->GetTipoCarta()=="Monstruo"){
 
-      //  baseCartas[opcion1]->Atacar(baseCartas[opcion2]);
+        Monstruo *m = dynamic_cast<Monstruo*>(baseCartas[opcion1]);
+        Magia *mag = dynamic_cast<Magia*>(baseCartas[opcion2]);
 
-    //}
+        mag->DarPoder(*m);
+    }
+    else{
+        cout << "Selecion de cartas incorrecta"<<endl;
+    }
+
+}
+
+void Deck::AplicarTrampa(){
+
+    int opcion1,opcion2;
+
+    cout << "Selecciona un monstruo y una carta de trampa"<<endl;
+    cout << "Monstruo : ";
+    cin >> opcion1;
+    cout << "Carta de trampa: ";
+    cin >> opcion2;
+
+    if (baseCartas[opcion1]->GetTipoCarta()=="Monstruo" && baseCartas[opcion2]->GetTipoCarta()=="Trampa"){
 
 
-//}
 
+        Monstruo *m = dynamic_cast<Monstruo*>(baseCartas[opcion1]);
+        Trampa *tra = dynamic_cast<Trampa*>(baseCartas[opcion2]);
+
+        tra->ReducirPoder(*m);
+    }
+    else{
+        cout << "Selecion de cartas incorrecta"<<endl;
+    }
+
+}
+
+/*
+void Deck::AtaqueDirigido(baseCartas[int numero]){
+    int opcion1;
+
+    cout << "Elija monstruo para atacar"<<endl;
+    Monstruo *m = dynamic_cast<Monstruo*>(baseCartas[opcion1]);
+    Monstruo *m2 = dynamic_cast<Monstruo*>(baseCartas[numero]);
+
+    m->Atacar(*m2);
+
+}
+*/
 
 #endif // DECK_H
 

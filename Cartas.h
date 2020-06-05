@@ -2,13 +2,16 @@
 #define CARTAS_H
 
 //Clase padre
+/*
+    Clase cartas sera una clase abstracta pues no se instanciaran objetos de este tipo
+*/
 #include <iostream>
 using namespace std;
 
 class Cartas {
 
     protected:
-        string nombre,atributo,CoID,desc,tipoCarta;
+        string nombre,atributo,CoID,desc,tipoCarta;  //tipoCarta puede ser Monstruo, Magica o Trampa
 
     public:
 
@@ -17,8 +20,8 @@ class Cartas {
         //Constructor cartas Hechizo
         Cartas(string nombre,string CoID,string desc,string tipoCarta);
 
-        virtual void generarCarta();
-        virtual void Invocar();
+        virtual void generarCarta()=0;   //Clases virtuales puras se sobreescribiran
+        virtual void Invocar()=0;     //Clase virtual puras se sobreescribe
         //getters
         string GetNombre(){return nombre;}
         string GetAtributo(){return atributo;}
@@ -28,7 +31,7 @@ class Cartas {
 
 };
 //Desarrollo de métodos
-Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string tipoCarta){
+Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string tipoCarta){  //Constructor
 
     this->nombre = nombre;
     this->atributo = atributo;
@@ -38,7 +41,7 @@ Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string t
 
 }
 
-Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){
+Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){   //Constructor
 
 
     this->nombre = nombre;
@@ -47,7 +50,7 @@ Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){
     this->tipoCarta = tipoCarta;
 
 }
-
+/*
 void Cartas::generarCarta(){
 
     //Podrian volverse virtuales, nunca se instancian objetos tipo carta
@@ -60,7 +63,9 @@ void Cartas::generarCarta(){
     cout << endl;
 
 }
+*/
 
+/*
 void Cartas::Invocar(){
 
     //Podria ser virtual checar
@@ -69,6 +74,6 @@ void Cartas::Invocar(){
 
 }
 
-
+*/
 
 #endif // CARTAS_H
