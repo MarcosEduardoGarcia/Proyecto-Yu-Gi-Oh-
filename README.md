@@ -8,7 +8,9 @@ En este repositorio se incluyen los archivos necesarios para hacer funcionar la 
 Se incluye:
 
 *Cartas.h,Monstruo.h,Hechizo.h,Magia.h,Trampa.h,deck.h
+
 *main.cpp
+
 * Diagrama UML del proyecto
 
 
