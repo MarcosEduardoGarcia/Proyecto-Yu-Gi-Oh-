@@ -31,7 +31,8 @@ class Cartas {
 
 };
 //Desarrollo de métodos
-Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string tipoCarta){  //Constructor
+
+Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string tipoCarta){  //Constructor usado para monstruos
 
     this->nombre = nombre;
     this->atributo = atributo;
@@ -41,7 +42,7 @@ Cartas :: Cartas(string nombre,string atributo,string CoID, string desc,string t
 
 }
 
-Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){   //Constructor
+Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){   //Constructor usado para hechizos
 
 
     this->nombre = nombre;
@@ -50,30 +51,6 @@ Cartas :: Cartas(string nombre,string CoID,string desc,string tipoCarta){   //Co
     this->tipoCarta = tipoCarta;
 
 }
-/*
-void Cartas::generarCarta(){
 
-    //Podrian volverse virtuales, nunca se instancian objetos tipo carta
-
-    cout << "Nombre: "<<nombre<<endl;
-    cout << "Atributo: "<<atributo<<endl;
-    cout << "Coleccion ID: "<<CoID<<endl;
-    cout << desc << endl;
-    cout << "Tipo: "<< tipoCarta<<endl;
-    cout << endl;
-
-}
-*/
-
-/*
-void Cartas::Invocar(){
-
-    //Podria ser virtual checar
-
-    cout << nombre << "Invocado"<<endl;
-
-}
-
-*/
 
 #endif // CARTAS_H

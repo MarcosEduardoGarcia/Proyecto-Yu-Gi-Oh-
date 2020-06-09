@@ -11,24 +11,40 @@ class Magia : public Hechizo {
 
     public:
 
-        Magia(string nombre, string CoID, string desc,int aumentar) : Hechizo(nombre,CoID,desc,"Magica") {
-
-            this->aumentar = aumentar;
-
-        }
-
+        Magia(string nombre, string CoID, string desc,int aumentar); //Constructor
+        //Metodos
         void DarPoder(Monstruo &m);
         void generarCarta();
         void Invocar();
 
 };
+//Desarrollando el constructor
+Magia::Magia(string nombre, string CoID, string desc,int aumentar) : Hechizo(nombre,CoID,desc,"Magica") {
+
+    this->aumentar = aumentar;
+
+}
+
+
 //Metodos de la clase magia
+/*
+El metodo dar poder recibe como parametro un mosntruo al cual se le
+modificara su atributo de ataque potenciandolo
+*/
 void Magia::DarPoder(Monstruo &m){
 
     m.SetAtk(aumentar);
-    cout <<"Poder aumenta a: "<< m.GetAtk();
+    cout <<"Poder de atk de "<<m.GetNombre()<<" aumenta a: "<< m.GetAtk()<<endl;
+    cout << endl;
 
 }
+
+
+/*
+El metodo generar carta es sobreescrito pues es virtual en la clase padre cartas
+Muestra los atributos propios de la cartas de magia delimitados con lineas diagonales
+para estilo y visualizacion
+*/
 
 void Magia::generarCarta(){
 
@@ -46,6 +62,12 @@ void Magia::generarCarta(){
 
 }
 
+/*
+
+Metodo sobreescrito pues es virtual en la clase padre
+Las cartas magicas tienen un efecto diferente al ser invocadas en el campo de batalla
+
+*/
 void Magia :: Invocar(){
 
     cout <<nombre<< " Carta de magia activada "<<endl;

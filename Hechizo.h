@@ -13,9 +13,7 @@ class Hechizo : public Cartas {
 
     public:
 
-        Hechizo(string nombre, string CoID, string desc, string tipoCarta) : Cartas(nombre,CoID,desc,tipoCarta){
-
-        }
+        Hechizo(string nombre, string CoID, string desc, string tipoCarta) : Cartas(nombre,CoID,desc,tipoCarta){ }
 
 
 };
