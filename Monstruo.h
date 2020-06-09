@@ -51,12 +51,12 @@ Monstruo::Monstruo(string nombre,string atributo,string CoID, string desc,string
 //Metodos de la clase monstruo
 
 /*
-Este es un metodo sobreescrito pues es un metodo virtual en la clase padre
+*Este es un metodo sobreescrito pues es un metodo virtual en la clase padre
 
-El metodo generar carta topa las atributos importantes de
-cada una de las cartas y los presenta en pantalla separados
-por barras de asteriscos pues en ocasiones se deberan presentar
-mas de una carta ayudando a la visualizacion para el usuario
+*El metodo generar carta toma las atributos importantes de
+*cada una de las cartas y los presenta en pantalla separados
+*por barras de asteriscos pues en ocasiones se deberan presentar
+*mas de una carta ayudando a la visualizacion para el usuario
 
 
 */
@@ -79,8 +79,8 @@ void Monstruo::generarCarta(){
 
 /*
 
-El metodo invocar es uno de los metodos sobreescritos pues es un
-metodo virtual en la clase carta pues toda carta se invoca
+*El metodo invocar es uno de los metodos sobreescritos pues es un
+*metodo virtual en la clase carta pues toda carta se invoca
 
 */
 void Monstruo::Invocar(){
@@ -90,9 +90,10 @@ void Monstruo::Invocar(){
 /*
 El metodo atacar recibe por referencia un objeto tipo monstruo
 
-Este es uno de los metodos basicos del juego de monstruos se enfretan el ataque del
-mosntruo propio contra la defensa del monstruo del adversario existiendo tres posibilidades
-ganar,empatar, o perder
+*Este es uno de los metodos basicos del juego de monstruos se enfretan el ataque del
+*mosntruo propio contra la defensa del monstruo del adversario existiendo tres posibilidades
+*ganar,empatar, o perder
+
 */
 
 void Monstruo::Atacar(Monstruo &m){
@@ -114,12 +115,13 @@ void Monstruo::Atacar(Monstruo &m){
 }
 
 /*
-Los monstruos pueden interactuar entre ellos de muchas maneras existe un atributo que no se
-muestra dentro de la descripcion que consiste en si es fusionale o no esto se descubre mediante
-experimentacion.
 
-El metodo del mosntruo recibe como parametro un monstruo por referecia y evalua con un tipo de dato booleano
-si ambos son true la fusion es posible.
+*Los monstruos pueden interactuar entre ellos de muchas maneras existe un atributo que no se
+*muestra dentro de la descripcion que consiste en si es fusionale o no esto se descubre mediante
+*experimentacion.
+
+*El metodo del mosntruo recibe como parametro un monstruo por referecia y evalua con un tipo de dato booleano
+*si ambos son true la fusion es posible.
 
 */
 

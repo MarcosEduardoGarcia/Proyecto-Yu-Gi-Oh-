@@ -27,8 +27,8 @@ Trampa::Trampa(string nombre, string CoID, string desc,int reducir) : Hechizo(no
 //Metodos de la clase trampa
 
 /*
-El metodo reducir poder recibe por referencia un objeto de tipo mosntruo
-con sus metodo set afectaremos su defensa en base al atributo int reducir de la trampa
+*El metodo reducir poder recibe por referencia un objeto de tipo mosntruo
+*con sus metodo set afectaremos su defensa en base al atributo int reducir de la trampa
 */
 void Trampa::ReducirPoder(Monstruo &m){
 
@@ -39,8 +39,8 @@ void Trampa::ReducirPoder(Monstruo &m){
 }
 
 /*
-El metodo generar carta es un metodo sobreescrito definido como virtual en la
-clase padre cartas este muestra sus propias caracteristicas delimitada con -- para visualizacion
+*El metodo generar carta es un metodo sobreescrito definido como virtual en la
+*clase padre cartas este muestra sus propias caracteristicas delimitada con -- para visualizacion
 */
 
 void Trampa::generarCarta(){
@@ -59,8 +59,8 @@ void Trampa::generarCarta(){
 }
 
 /*
-El metodo invocar es declarado como virtual en la clase padre y es sobreescrito
-Las cartas trampa tiene un efecto diferente al ser invocadas en el campo
+*El metodo invocar es declarado como virtual en la clase padre y es sobreescrito
+*Las cartas trampa tiene un efecto diferente al ser invocadas en el campo
 */
 
 void Trampa :: Invocar(){

@@ -5,9 +5,10 @@
 #include <iostream>
 
 /*
-En esta clase se generaran objetos de tipo deck en particular con un arreglo denominado baseCartas
-YuGiOh cuenta con una extensa variedad de cartas se generan las cartas mas famosas de la primera generación
-y se guardaran en un arreglo con limite de 50 cartas
+
+*En esta clase se generaran objetos de tipo deck en particular con un arreglo denominado baseCartas
+*YuGiOh cuenta con una extensa variedad de cartas se generan las cartas mas famosas de la primera generación
+*y se guardaran en un arreglo con limite de 50 cartas
 
 */
 
@@ -40,10 +41,12 @@ class Deck {
 
 };
 /*
-Creamos el arreglo de baseCartas y lo llenamos con objetos de las
-distintas clases Monstruo,Magia y Trampo en tiempo de ejecucion con "new" en el heap,
-de inicio en el arreglo existen los objetos como
-cartas y con el polimorfismo haran uso de su propio metodo cuando sea llamado
+
+*Creamos el arreglo de baseCartas y lo llenamos con objetos de las
+*distintas clases Monstruo,Magia y Trampo en tiempo de ejecucion con "new" en el heap,
+*de inicio en el arreglo existen los objetos como
+*cartas y con el polimorfismo haran uso de su propio metodo cuando sea llamado
+
 */
 void Deck :: CargarBaseCartas(){
 
@@ -100,10 +103,12 @@ void Deck :: mostrarCartas(){
 
 }
 /*
-Arroja todas las cartas de un mismo tipo sobrecargando este metodo
-Recorremos el arreglo buscando las cartas donde el atributo de tipoCarta
-coincidan con el paramtero de tipo string y obteniendo su posicion en el arreglo
-imrpiendo el iterador i
+
+*Arroja todas las cartas de un mismo tipo sobrecargando este metodo
+*Recorremos el arreglo buscando las cartas donde el atributo de tipoCarta
+*coincidan con el paramtero de tipo string y obteniendo su posicion en el arreglo
+*imrpiendo el iterador i
+
 */
 void Deck :: mostrarCartas(string tipoCarta){
 
@@ -119,9 +124,10 @@ void Deck :: mostrarCartas(string tipoCarta){
 }
 
 /*
-El metodo desplegar nos permitira desplegar la informacion de una sola carta recibe como
-parametro la posicion de la carta en el arreglo llamamos su metodo con -> pues lo declaramos
-con new y con el polimorfismo llamara al metodo generar carta segun el tipo de objeto
+
+*El metodo desplegar nos permitira desplegar la informacion de una sola carta recibe como
+*parametro la posicion de la carta en el arreglo llamamos su metodo con -> pues lo declaramos
+*con new y con el polimorfismo llamara al metodo generar carta segun el tipo de objeto
 
 */
 void Deck::desplegar(int opcion){
@@ -130,10 +136,11 @@ void Deck::desplegar(int opcion){
 
 }
 /*
-Metodo para contar el numero de tipo de cartas que existen en la base de cartas
-teniendo tres variables enteras en cero con un for iremos recorriendo el arreglo
-baseCarta obteniendo mediante un get el tipo de Carta y segun sea su tipo llenaremos
-las variables acumulativas mostrando al final la cantidad de cartas de cada tipo
+
+*Metodo para contar el numero de tipo de cartas que existen en la base de cartas
+*teniendo tres variables enteras en cero con un for iremos recorriendo el arreglo
+*baseCarta obteniendo mediante un get el tipo de Carta y segun sea su tipo llenaremos
+*las variables acumulativas mostrando al final la cantidad de cartas de cada tipo
 
 */
 void Deck :: cuentaTipos(){
@@ -165,9 +172,10 @@ void Deck :: cuentaTipos(){
 
 
 /*
-Metodo para activar la invocacion usando polimorfismo dado el
-numero de posicion de una carta en el arreglo llamaremos el
-metodo invocar usando el metodo de la clase que le corresponda
+
+*Metodo para activar la invocacion usando polimorfismo dado el
+*numero de posicion de una carta en el arreglo llamaremos el
+*metodo invocar usando el metodo de la clase que le corresponda
 
 */
 void Deck::ActivarInvocacion(int opcion){
@@ -176,9 +184,11 @@ void Deck::ActivarInvocacion(int opcion){
 
 }
 /*
-Metodo para dar solo los nombres de las cartas
-Para mostrar en un menor espacio las cartas mostraremos unicamente el atributo
-de nombre y tipo de carta mediante getters recorriendo el arreglo con un ciclo for
+
+*Metodo para dar solo los nombres de las cartas
+*Para mostrar en un menor espacio las cartas mostraremos unicamente el atributo
+*de nombre y tipo de carta mediante getters recorriendo el arreglo con un ciclo for
+
 */
 void Deck ::ArrojaNombres(){
 
@@ -196,18 +206,22 @@ void Deck ::ArrojaNombres(){
 //Metodos de ataque, fusion y equipar magia entre monstruos dentro del arreglo mediante el dynamic cast
 
 /*
-Los objetos dentro del arreglo existen como cartas en si por lo que
-llamar un metodo exclusivo de una clase es imposible es justamente lo
-contrario a lo que demuestra el polimorfismo mediante dynamic_cast le
-diremos al programa que tipo de objeto es para asi poder acceder a sus metodos
+
+*Los objetos dentro del arreglo existen como cartas en si por lo que
+*llamar un metodo exclusivo de una clase es imposible es justamente lo
+*contrario a lo que demuestra el polimorfismo mediante dynamic_cast le
+*diremos al programa que tipo de objeto es para asi poder acceder a sus metodos
+
 */
 
 
 /*
-Ataquesencillo nos permite tomar dos objetos del arreglo y enfrentarlos para ello primero
-debemos asegurarnos que ambos objetos sean de tipo monstruo mediante obtener el
-GetTipoCarta y una vez cumplida esta condicion mediante dynamic_cast le
-diremos al programa que son mosntruos para asi acceder a sus metodos exculusivos
+
+*Ataquesencillo nos permite tomar dos objetos del arreglo y enfrentarlos para ello primero
+*debemos asegurarnos que ambos objetos sean de tipo monstruo mediante obtener el
+*GetTipoCarta y una vez cumplida esta condicion mediante dynamic_cast le
+*diremos al programa que son mosntruos para asi acceder a sus metodos exculusivos
+
 */
 void Deck :: Ataquesencillo(int monstruo1,int monstruo2){
 
@@ -228,10 +242,12 @@ void Deck :: Ataquesencillo(int monstruo1,int monstruo2){
 
 
 /*
-Fusionmons nos permite tomar dos objetos del arreglo y fusionarlos para ello primero
-debemos asegurarnos que ambos objetos sean de tipo monstruo mediante obtener el
-GetTipoCarta y una vez cumplida esta condicion mediante dynamic_cast le diremos
-al programa que son monstruos para asi acceder a sus metodos exculusivos
+
+*Fusionmons nos permite tomar dos objetos del arreglo y fusionarlos para ello primero
+*debemos asegurarnos que ambos objetos sean de tipo monstruo mediante obtener el
+*GetTipoCarta y una vez cumplida esta condicion mediante dynamic_cast le diremos
+*al programa que son monstruos para asi acceder a sus metodos exculusivos
+
 */
 
 void Deck::fusionMons(int opcion1,int opcion2){
@@ -252,10 +268,12 @@ void Deck::fusionMons(int opcion1,int opcion2){
 
 
 /*
-Equipar magia nos permite tomar un mosntruo y darle magia para ello tendremos
-que tomar un objeto de tipo mosntru y uno de tipo magia mediante una condicion una
-vez estando seguros del tipo de objetos que son con dynamic_cast los definiremos
-como su tipo para poder usar sus metodos
+
+*Equipar magia nos permite tomar un mosntruo y darle magia para ello tendremos
+*que tomar un objeto de tipo mosntru y uno de tipo magia mediante una condicion una
+*vez estando seguros del tipo de objetos que son con dynamic_cast los definiremos
+*como su tipo para poder usar sus metodos
+
 */
 
 void Deck::EquiparMagia(int monstruo,int magia){
@@ -278,10 +296,12 @@ void Deck::EquiparMagia(int monstruo,int magia){
 }
 
 /*
-Aplicartrampa nos permite tomar un monstruo y aplicarle una trampa para ello tendremos
-que tomar un objeto de tipo mosntruo y uno de tipo trampa mediante una condicion una
-vez estando seguros del tipo de objetos que son con dynamic_cast los definiremos
-como su tipo para poder usar sus metodos
+
+*Aplicartrampa nos permite tomar un monstruo y aplicarle una trampa para ello tendremos
+*que tomar un objeto de tipo mosntruo y uno de tipo trampa mediante una condicion una
+*vez estando seguros del tipo de objetos que son con dynamic_cast los definiremos
+*como su tipo para poder usar sus metodos
+
 */
 
 void Deck::AplicarTrampa(int monstruo,int trampa){
@@ -303,10 +323,12 @@ void Deck::AplicarTrampa(int monstruo,int trampa){
 
 }
 /*
-Determinar el ganador de un duelo es lo mas importante cada monstruo cuenta con un
-atributo bool denominado status que se inicializa por default en true lo que indica
-que esta vivo al atacar puede llegar a perder la batalla y morir por lo que su status
-cambiara a false mostrando el mensaje de haber ganado o haber fallado.
+
+*Determinar el ganador de un duelo es lo mas importante cada monstruo cuenta con un
+*atributo bool denominado status que se inicializa por default en true lo que indica
+*que esta vivo al atacar puede llegar a perder la batalla y morir por lo que su status
+*cambiara a false mostrando el mensaje de haber ganado o haber fallado.
+
 */
 void Deck::Ganador(int monstruo1){
 
